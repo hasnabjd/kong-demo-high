@@ -93,7 +93,7 @@ jobs:
             --konnect-control-plane-name ${{vars.KONNECT_INTERNAL_CP}} \
             --konnect-token ${{ secrets.KONNECT_PAT }} \
             --konnect-addr ${{vars.KONNECT_ADDR}} \
-            .github/artifacts/booking-service/booking-service-kong.yaml || true
+            .github/artifacts/booking-service/kong.yaml || true
           echo "Deck diff generated"
 
 
@@ -104,7 +104,6 @@ jobs:
       - name: Create PR to stage changes for the Kong Gateway in production
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           title: "❗PRD❗: Staged changes for Kong Gateway PRD deployment - demo_high booking-service"
           labels: "PRD,booking-service"
           body: "Staged changes for deploying demo_high booking-service to PRD. Review the deck diff in the workflow logs."
