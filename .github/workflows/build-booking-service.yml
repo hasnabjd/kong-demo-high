@@ -15,6 +15,9 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  issues: write
+  repository-projects: write
 
 jobs:
   oas-to-kong:
